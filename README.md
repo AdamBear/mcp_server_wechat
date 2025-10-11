@@ -152,7 +152,7 @@ npx @modelcontextprotocol/inspector python -m mcp_server_wechat
 
 <table>
   <tr>
-    <td align="center" width="34%">
+    <td align="center" width="33%">
       <img src="https://raw.githubusercontent.com/panxingfeng/mcp_server_wechat/main/测试.png" width="330" /><br>
       <em>inspector的测试</em>
     </td>
@@ -160,7 +160,7 @@ npx @modelcontextprotocol/inspector python -m mcp_server_wechat
       <img src="https://raw.githubusercontent.com/panxingfeng/mcp_server_wechat/main/多工具测试.gif" width="330" /><br>
       <em>基于我自己UI(仿Cherry Studio)</a>的测试</em>
     </td>
-    <td align="center" width="33%">
+    <td align="center" width="34%">
       <img src="https://raw.githubusercontent.com/panxingfeng/mcp_server_wechat/main/Streamable_HTTP_测试.png" width="330" /><br>
       <em>基于 Cherry Studio 的Streamable_HTTP</a>的测试</em> 
     </td>
