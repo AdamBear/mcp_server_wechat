@@ -39,6 +39,13 @@ pip install mcp_server_wechat
 获取最新
 pip install --upgrade mcp_server_wechat
 ```
+sse版
+```bash
+python -m venv  # 创建虚拟环境
+venv/scripts/activate # 激活环境
+pip install -r requirements.txt
+python -m mcp_server_wechat
+```
 
 ## 使用示例
 
