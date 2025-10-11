@@ -144,7 +144,6 @@ class WeChatClient:
             chat_history = list(zip(who, time_list, content))
             return chat_history
 
-        # 流式反馈：开始打开聊天记录窗口
         if progress_callback:
             await progress_callback(f"正在打开与 {friend} 的聊天记录窗口...")
 
@@ -422,4 +421,5 @@ class WeChatClient:
             if progress_callback:
                 await progress_callback(error_msg)
             return {"status": "error", "message": f"发送消息失败: {str(e)}"}
+
 
