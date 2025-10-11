@@ -28,12 +28,6 @@ from .WechatClient import WeChatClient
     default="INFO",
     help="日志级别 (DEBUG, INFO, WARNING, ERROR, CRITICAL)",
 )
-@click.option(
-    "--json-response",
-    is_flag=True,
-    default=False,
-    help="启用 JSON 响应模式（禁用 SSE 流式推送）",
-)
 def main(port: int, folder_path: Optional[str], log_level: str, json_response: bool) -> int:
     """运行微信 MCP 服务器（Streamable HTTP 传输）"""
 
@@ -457,4 +451,5 @@ def main(port: int, folder_path: Optional[str], log_level: str, json_response: b
 
 if __name__ == "__main__":
     main()
+
 
