@@ -29,6 +29,12 @@ class WeChatClient:
         self.default_folder_path = default_folder_path
         self.logger = logging.getLogger(__name__)
 
+        if self.default_folder_path:
+            try:
+                os.makedirs(self.default_folder_path, exist_ok=True)
+            except Exception as e:
+                self.logger.error(f"创建默认文件夹失败: {self.default_folder_path}, 错误: {e}")
+
     async def get_chat_history_by_date(
         self,
         friend: str,
@@ -422,4 +428,5 @@ class WeChatClient:
             if progress_callback:
                 await progress_callback(error_msg)
             return {"status": "error", "message": f"发送消息失败: {str(e)}"}
+
 
