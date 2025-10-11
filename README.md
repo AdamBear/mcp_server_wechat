@@ -162,7 +162,7 @@ npx @modelcontextprotocol/inspector python -m mcp_server_wechat
     </td>
     <td align="center" width="50%">
       <img src="https://raw.githubusercontent.com/panxingfeng/mcp_server_wechat/main/Streamable_HTTP_测试.png" width="330" /><br>
-      <em>基于 Cherry Studio 的Streamable_HTTP测试</em> 
+      <em>基于 Cherry Studio 的Streamable_HTTP</a>的测试</em> 
     </td>
   </tr>
 </table>
