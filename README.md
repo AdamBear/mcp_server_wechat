@@ -31,23 +31,22 @@
 
 ## 安装方法
 
-### 使用 pip 安装
+### stdio版
 
-stdio版
 ```bash
 pip install mcp_server_wechat
 
 获取最新
 pip install --upgrade mcp_server_wechat
 ```
-sse版
+### sse版
 ```bash
 python -m venv venv  # 创建虚拟环境
 venv/scripts/activate # 激活环境
 pip install -r requirements.txt
 ```
 
-Streamable_HTTP版
+### Streamable_HTTP版
 ```bash
 python -m venv venv  # 创建虚拟环境
 venv/scripts/activate # 激活环境
