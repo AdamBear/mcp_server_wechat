@@ -29,6 +29,12 @@ class WeChatClient:
         self.default_folder_path = default_folder_path
         self.logger = logging.getLogger(__name__)
 
+        if self.default_folder_path:
+            try:
+                os.makedirs(self.default_folder_path, exist_ok=True)
+            except Exception as e:
+                self.logger.error(f"创建默认文件夹失败: {self.default_folder_path}, 错误: {e}")
+
     def get_chat_history_by_date(self, friend: str, target_date: str, folder_path: str = None,
                                  search_pages: int = 5, wechat_path: str = None, is_maximize: bool = False,
                                  close_wechat: bool = True, scroll_delay: float = 0.01):
