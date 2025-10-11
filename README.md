@@ -12,7 +12,7 @@
 - `wechat_get_chat_history` - 获取特定日期的微信聊天记录
   - 必需参数:
     - `to_user` (string): 好友或群聊备注或昵称
-    - `target_date` (string): 目标日期，格式为YY/M/D，如25/3/22 -> 暂时不要跨度过长，初始目的就是为了当日的聊天记录
+    - `target_date` (string): 目标日期，格式为YY/M/D，如25/3/22
 
 - `wechat_send_message` - 向单个微信好友发送单条消息
   - 必需参数:
@@ -47,12 +47,23 @@ pip install --upgrade mcp_server_wechat
 在您的 MCP 配置中添加：
 
 ```json
-{
-  "mcpServers": {
-    "wechat": {
-      "command": "python",
-      "args": ["-m", "mcp_server_wechat","--folder-path=存放历史记录的目录"]
-    }
+"mcpServers": {
+  "wechat": {
+    "command": "python",
+    "args": ["-m", "mcp_server_wechat","--folder-path=存放历史记录的目录"]
+  }
+}
+```
+sse版
+
+启动命令 
+```bash
+python -m mcp_server_wechat
+```
+```json
+"mcpServers": {
+  "wechat": {
+    "url": "http://localhost:3000/sse"
   }
 }
 ```
@@ -121,7 +132,7 @@ npx @modelcontextprotocol/inspector python -m mcp_server_wechat
     </td>
     <td align="center" width="50%">
       <img src="https://raw.githubusercontent.com/panxingfeng/mcp_server_wechat/main/多工具测试.gif" width="330" /><br>
-      <em>基于我自己<a href="https://github.com/panxingfeng/chat_mcp">chat_mcp</a>的测试</em>
+      <em>基于我自己UI(仿Cherry Studio)</a>的测试</em>
     </td>
   </tr>
 </table>
