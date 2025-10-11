@@ -33,6 +33,7 @@
 
 ### 使用 pip 安装
 
+stdio版
 ```bash
 pip install mcp_server_wechat
 
