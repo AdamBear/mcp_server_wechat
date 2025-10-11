@@ -44,7 +44,13 @@ sse版
 python -m venv venv  # 创建虚拟环境
 venv/scripts/activate # 激活环境
 pip install -r requirements.txt
-python -m mcp_server_wechat
+```
+
+Streamable_HTTP版
+```bash
+python -m venv venv  # 创建虚拟环境
+venv/scripts/activate # 激活环境
+pip install -r requirements.txt
 ```
 
 ## 使用示例
@@ -71,6 +77,19 @@ python -m mcp_server_wechat
 "mcpServers": {
   "wechat": {
     "url": "http://localhost:3000/sse"
+  }
+}
+```
+Streamable_HTTP版
+
+启动命令 
+```bash
+python -m map_server_wecha_Streamable_HTTP
+```
+```json
+"mcpServers": {
+  "wechat": {
+    "url": "http://localhost:3000/mcp"
   }
 }
 ```
@@ -140,6 +159,10 @@ npx @modelcontextprotocol/inspector python -m mcp_server_wechat
     <td align="center" width="50%">
       <img src="https://raw.githubusercontent.com/panxingfeng/mcp_server_wechat/main/多工具测试.gif" width="330" /><br>
       <em>基于我自己UI(仿Cherry Studio)</a>的测试</em>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://raw.githubusercontent.com/panxingfeng/mcp_server_wechat/main/Streamable_HTTP_测试.png" width="330" /><br>
+      <em>基于 Cherry Studio 的Streamable_HTTP测试</em>
     </td>
   </tr>
 </table>
