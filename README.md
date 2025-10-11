@@ -39,14 +39,7 @@ pip install mcp_server_wechat
 获取最新
 pip install --upgrade mcp_server_wechat
 ```
-### sse版
-```bash
-python -m venv venv  # 创建虚拟环境
-venv/scripts/activate # 激活环境
-pip install -r requirements.txt
-```
-
-### Streamable_HTTP版
+### sse版/Streamable_HTTP版
 ```bash
 python -m venv venv  # 创建虚拟环境
 venv/scripts/activate # 激活环境
@@ -59,6 +52,7 @@ pip install -r requirements.txt
 
 在您的 MCP 配置中添加：
 
+stdio版
 ```json
 "mcpServers": {
   "wechat": {
@@ -71,7 +65,7 @@ sse版
 
 启动命令 
 ```bash
-python -m mcp_server_wechat
+python -m mcp_server_wechat # 历史记录位置可以在代码中修改
 ```
 ```json
 "mcpServers": {
@@ -84,7 +78,7 @@ Streamable_HTTP版
 
 启动命令 
 ```bash
-python -m map_server_wecha_Streamable_HTTP
+python -m map_server_wecha_Streamable_HTTP # 历史记录位置可以在代码中修改
 ```
 ```json
 "mcpServers": {
