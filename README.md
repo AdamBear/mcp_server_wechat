@@ -65,7 +65,7 @@ sse版
 
 启动命令 
 ```bash
-python -m mcp_server_wechat_sse # 历史记录位置可以在代码中修改
+python -m mcp_server_wechat_sse --folder-path=x:\xxxxx #默认文件夹可以在代码中修改
 ```
 ```json
 "mcpServers": {
@@ -78,7 +78,7 @@ Streamable_HTTP版
 
 启动命令 
 ```bash
-python -m mcp_server_wecha_Streamable_HTTP # 历史记录位置可以在代码中修改
+python -m mcp_server_wecha_Streamable_HTTP --folder-path=x:\xxxxx #默认文件夹可以在代码中修改
 ```
 ```json
 "mcpServers": {
