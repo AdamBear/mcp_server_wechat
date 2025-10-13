@@ -28,7 +28,8 @@ class WeChatClient:
         """
         self.default_folder_path = default_folder_path
         self.logger = logging.getLogger(__name__)
-
+        
+        # 如果指定了默认文件夹路径，确保它存在
         if self.default_folder_path:
             try:
                 os.makedirs(self.default_folder_path, exist_ok=True)
@@ -59,7 +60,10 @@ class WeChatClient:
         if folder_path:
             folder_path = re.sub(r'(?<!\\)\\(?!\\)', r'\\\\', folder_path)
             if not Systemsettings.is_dirctory(folder_path):
-                raise NotFolderError(r'给定路径不是文件夹!无法保存聊天记录,请重新选择文件夹！')
+                try:
+                    os.makedirs(folder_path, exist_ok=True)
+                except Exception as e:
+                    raise NotFolderError(f'无法创建文件夹: {folder_path}, 错误: {e}')
 
         try:
             match = re.match(r'(\d{2})/(\d{1,2})/(\d{1,2})', target_date)
@@ -273,8 +277,8 @@ class WeChatClient:
 
         return chat_history_json
 
-    def send_message_to_friend(self, friend: str, message: str,
-                               search_pages: int = 0, delay: float = 1.0):
+    def send_message_to_friend(self, friend: str, message: str, delay: float = 1,
+                               search_pages: int = 0):
         """
         向单个好友发送单条消息
 
@@ -288,18 +292,19 @@ class WeChatClient:
         - 发送结果
         """
         try:
-            Messages.send_message_to_friend(
+            # 使用 send_messages_to_friend 接口，将单条消息包装成列表
+            Messages.send_messages_to_friend(
                 friend=friend,
-                message=message,
-                search_pages=search_pages,
+                messages=[message],
                 delay=delay,
+                search_pages=search_pages
             )
             return {"status": "success", "message": f"消息已发送给 {friend}"}
         except Exception as e:
             return {"status": "error", "message": f"发送消息失败: {str(e)}"}
 
-    def send_messages_to_friend(self, friend: str, messages: List[str],
-                                search_pages: int = 0, delay: float = 1.0):
+    def send_messages_to_friend(self, friend: str, messages: List[str], delay: float = 1,
+                                search_pages: int = 0):
         """
         向单个好友发送多条消息
 
@@ -316,14 +321,14 @@ class WeChatClient:
             Messages.send_messages_to_friend(
                 friend=friend,
                 messages=messages,
-                search_pages=search_pages,
-                delay=delay
+                delay=delay,
+                search_pages=search_pages
             )
             return {"status": "success", "message": f"已向 {friend} 发送 {len(messages)} 条消息"}
         except Exception as e:
             return {"status": "error", "message": f"发送消息失败: {str(e)}"}
 
-    def send_message_to_friends(self, friends: List[str], message: Union[str, List[str]],delay: float = 1.0):
+    def send_message_to_friends(self, friends: List[str], message: Union[str, List[str]], delay: float = 1):
         """
         向多个好友发送消息
 
@@ -345,7 +350,7 @@ class WeChatClient:
         except Exception as e:
             return {"status": "error", "message": f"发送消息失败: {str(e)}"}
 
-    def send_messages_to_friends(self, friends: List[str], messages: List[List[str]],delay: float = 1.0):
+    def send_messages_to_friends(self, friends: List[str], messages: List[List[str]], delay: int = 1):
         """
         向多个好友发送多条消息
 
@@ -361,7 +366,7 @@ class WeChatClient:
             Messages.send_messages_to_friends(
                 friends=friends,
                 messages=messages,
-                delay=delay
+                # delay=delay
             )
             return {"status": "success", "message": f"已向 {len(friends)} 位好友发送消息"}
         except Exception as e:
