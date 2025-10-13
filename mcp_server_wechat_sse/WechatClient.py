@@ -292,9 +292,10 @@ class WeChatClient:
         - 发送结果
         """
         try:
-            Messages.send_message_to_friend(
+            # 使用 send_messages_to_friend 接口，将单条消息包装成列表
+            Messages.send_messages_to_friend(
                 friend=friend,
-                message=message,
+                messages=[message],
                 delay=delay,
                 search_pages=search_pages
             )
