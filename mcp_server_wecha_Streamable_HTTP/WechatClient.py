@@ -338,11 +338,11 @@ class WeChatClient:
             if progress_callback:
                 await progress_callback(f"正在向 {friend} 发送消息...")
 
-            Messages.send_message_to_friend(
+            Messages.send_messages_to_friend(
                 friend=friend,
-                message=message,
-                search_pages=search_pages,
-                delay=delay
+                messages=[message],
+                delay=delay,
+                search_pages=search_pages
             )
 
             if progress_callback:
