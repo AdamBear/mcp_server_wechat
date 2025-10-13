@@ -28,7 +28,6 @@ class WeChatClient:
         """
         self.default_folder_path = default_folder_path
         self.logger = logging.getLogger(__name__)
-
         if self.default_folder_path:
             try:
                 os.makedirs(self.default_folder_path, exist_ok=True)
@@ -320,6 +319,7 @@ class WeChatClient:
         friend: str,
         message: str,
         search_pages: int = 0,
+        delay: float = 1.0,
         progress_callback: Optional[Callable[[str], Awaitable[None]]] = None,
     ):
         """
@@ -341,7 +341,8 @@ class WeChatClient:
             Messages.send_message_to_friend(
                 friend=friend,
                 message=message,
-                search_pages=search_pages
+                search_pages=search_pages,
+                delay=delay
             )
 
             if progress_callback:
@@ -359,6 +360,7 @@ class WeChatClient:
         friend: str,
         messages: List[str],
         search_pages: int = 0,
+        delay: float = 1.0,
         progress_callback: Optional[Callable[[str], Awaitable[None]]] = None,
     ):
         """
@@ -380,7 +382,8 @@ class WeChatClient:
             Messages.send_messages_to_friend(
                 friend=friend,
                 messages=messages,
-                search_pages=search_pages
+                search_pages=search_pages,
+                delay=delay
             )
 
             if progress_callback:
@@ -397,6 +400,7 @@ class WeChatClient:
         self,
         friends: List[str],
         message: Union[str, List[str]],
+        delay: float = 1.0,
         progress_callback: Optional[Callable[[str], Awaitable[None]]] = None,
     ):
         """
@@ -417,6 +421,7 @@ class WeChatClient:
             Messages.send_message_to_friends(
                 friends=friends,
                 message=message,
+                delay=delay
             )
 
             if progress_callback:
@@ -428,5 +433,4 @@ class WeChatClient:
             if progress_callback:
                 await progress_callback(error_msg)
             return {"status": "error", "message": f"发送消息失败: {str(e)}"}
-
 
