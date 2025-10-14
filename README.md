@@ -54,11 +54,13 @@ pip install -r requirements.txt
 
 stdio版
 ```json
-"mcpServers": {
-  "wechat": {
-    "command": "python",
-    "args": ["-m", "mcp_server_wechat","--folder-path=存放历史记录的目录"]
-  }
+{
+    "mcpServers": {
+        "wechat": {
+            "command": "python",
+            "args": ["-m", "mcp_server_wechat","--folder-path=存放历史记录的目录"]
+        }
+    }
 }
 ```
 sse版
@@ -68,10 +70,12 @@ sse版
 python -m mcp_server_wechat_sse --folder-path=x:\xxxxx #默认文件夹可以在代码中修改
 ```
 ```json
-"mcpServers": {
-  "wechat": {
-    "url": "http://localhost:3000/sse"
-  }
+{
+    "mcpServers": {
+        "wechat": {
+            "url": "http://localhost:3000/sse"
+        }
+    }
 }
 ```
 Streamable_HTTP版
@@ -81,10 +85,12 @@ Streamable_HTTP版
 python -m mcp_server_wechat_Streamable_HTTP --folder-path=x:\xxxxx #默认文件夹可以在代码中修改
 ```
 ```json
-"mcpServers": {
-  "wechat": {
-    "url": "http://localhost:3000/mcp"
-  }
+{
+    "mcpServers": {
+        "wechat": {
+            "url": "http://localhost:3000/mcp"
+        }
+    }
 }
 ```
 
